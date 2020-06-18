@@ -5,6 +5,7 @@
  */
 package pengolahanuangpribadi;
 
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
@@ -65,6 +66,12 @@ public class KeuanganView extends javax.swing.JFrame {
         jLabel3.setText("Tipe");
 
         jLabel4.setText("Keterangan");
+
+        Nominal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NominalKeyTyped(evt);
+            }
+        });
 
         Tipe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Tipe", "Pengeluaran", "Pemasukan" }));
 
@@ -215,6 +222,16 @@ public class KeuanganView extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_HitungActionPerformed
+
+    private void NominalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NominalKeyTyped
+        char c = evt.getKeyChar(); 
+
+        if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) ||
+            (c == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_NominalKeyTyped
 
     /**
      * @param args the command line arguments
