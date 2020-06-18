@@ -15,7 +15,9 @@ public class PengolahanUangPribadi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        KeuanganView KeuanganView = new KeuanganView();
+        
+        KeuanganView.setVisible(true);
     }
     
 }
